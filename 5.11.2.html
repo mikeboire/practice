@@ -15,14 +15,14 @@
 	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 	<script>
 
-	// 
+	// variable object, firebase database
 	var clickData = new Firebase("https://rcb-clickbutton.firebaseio.com/");
-	var clickCounter = 0;	
+	var clickCounter = 100;	
 	
-	// 
+	// on click function
 	$("#clickButton").on("click", function() {
 
-		// 
+		// adds value on click
 		clickCounter++;
 
 		// 
@@ -34,7 +34,7 @@
 	// 
 	clickData.on("value", function(snapshot) {
 
-		// 
+		// console log the function
 		console.log(snapshot.val());
 
 		// 
@@ -43,10 +43,10 @@
 		// 
 		clickCounter = snapshot.val().clickCount;
 
-	// 
+	// function to run if theres an error
 	}, function (errorObject) {
 
-		// 
+		// console log if an error occurs
 	  	console.log("The read failed: " + errorObject.code);
 	
 	});
